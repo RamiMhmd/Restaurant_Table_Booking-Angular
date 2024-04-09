@@ -1,16 +1,10 @@
 import { Component } from '@angular/core';
-
+import { commonStyles } from '../app.constants'
 @Component({
     selector: 'app-landing-page',
     templateUrl: './landing-page.component.html',
    styleUrls: [
-    './landing-page.component.css',
-    '../../assets/lib/animate/animate.min.css',
-    '../../assets/lib/owlcarousel/assets/owl.carousel.min.css',
-    '../../assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css',
-    '../../assets/css/bootstrap.min.css',
-    '../../assets/css/style.css',
-  ]
+    './landing-page.component.css',...commonStyles]
 })
 export class LandingPageComponent {
     isLoggedIn: boolean;

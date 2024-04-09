@@ -2,16 +2,11 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegisterService } from '../services/register.service';
 import { Router } from '@angular/router';
+import { commonStyles } from '../app.constants'
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css',
-  '../../assets/lib/animate/animate.min.css',
-  '../../assets/lib/owlcarousel/assets/owl.carousel.min.css',
-  '../../assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css',
-  '../../assets/css/bootstrap.min.css',
-  '../../assets/css/style.css',
-  ]
+  styleUrls: ['./register.component.css',...commonStyles ]
 })
 export class RegisterComponent {
   registerForm: FormGroup;

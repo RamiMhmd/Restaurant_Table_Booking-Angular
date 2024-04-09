@@ -1,15 +1,9 @@
 import { Component } from '@angular/core';
-
+import { commonStyles } from '../app.constants'
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css',
-  '../../assets/lib/animate/animate.min.css',
-  '../../assets/lib/owlcarousel/assets/owl.carousel.min.css',
-  '../../assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css',
-  '../../assets/css/bootstrap.min.css',
-  '../../assets/css/style.css',
-  ]
+  styleUrls: ['./footer.component.css',...commonStyles]
 })
 export class FooterComponent {
 

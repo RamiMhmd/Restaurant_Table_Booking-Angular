@@ -2,17 +2,12 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
+import { commonStyles } from '../app.constants'
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css',
-    '../../assets/lib/animate/animate.min.css',
-    '../../assets/lib/owlcarousel/assets/owl.carousel.min.css',
-    '../../assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css',
-    '../../assets/css/bootstrap.min.css',
-    '../../assets/css/style.css',
-  ]
+  styleUrls: ['./login.component.css',...commonStyles]
 })
 export class LoginComponent {
   loginForm: FormGroup;

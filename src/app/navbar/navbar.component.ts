@@ -1,15 +1,9 @@
 import { Component } from '@angular/core';
-
+import { commonStyles } from '../app.constants'
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css',
-  '../../assets/lib/animate/animate.min.css',
-  '../../assets/lib/owlcarousel/assets/owl.carousel.min.css',
-  '../../assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css',
-  '../../assets/css/bootstrap.min.css',
-  '../../assets/css/style.css',
-  ]
+  styleUrls: ['./navbar.component.css',...commonStyles]
 })
 export class NavbarComponent {
   isLoggedIn: boolean;

@@ -1,0 +1,54 @@
+
+<!-- Menu Start -->
+<div class="container-xxl py-5">
+  <div class="container mt-5">
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+      <h5 *ngIf="userName" class="section-title ff-secondary text-center text-primary fw-normal">Hai {{userName}}</h5>
+      <h1 class="mb-5">Your Orders</h1>
+    </div>
+    <div class="text-center mb-4">
+      <button *ngIf="items.length > 0" type="button" class="btn btn-primary hidden-print"
+        (click)="onPrint('section-to-print')">
+        <i class="fas fa-print me-2"></i> Print
+      </button>
+    </div>
+    <div *ngIf="items.length == 0" class="text-center text-primary pt-5" style="min-height: 15rem;"> There is no orders placed</div>
+    <div class="row" id="section-to-print">
+      <div class="col-md-4 mb-3" *ngFor="let order of items">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ order.name }}</h5>
+            <p class="card-text text-secondary">Email : {{ order.email }}</p>
+            <p class="card-text text-secondary">Date & time : {{ order.date_time | date: 'd MMMM yyyy HH:mm' }}</p>
+            <p class="card-text text-secondary">Table : {{ order.table }}</p>
+            <p class="card-text text-secondary">Peoples : {{ order.no_of_people }} </p>
+            <h6>Table:</h6>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between align-items-center text-success">
+                  <div>
+                    <img [src]="order.table_imgUrl" alt="Item Image" class="imageStyle">
+                    &nbsp;{{ order.table }}
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <h6 class="mt-3">Item:</h6>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between align-items-center text-success">
+                  <div>
+                    <img [src]="order.items.imgUrl" alt="Item Image" class="imageStyle">
+                    &nbsp;{{ order.items.name }} - $ {{ order.items.price }}
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <h5 class="text-primary mt-3">Total : $ {{ order.total }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Menu End -->

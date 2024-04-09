@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+    <a href="" class="navbar-brand p-0">
+        <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>Alsaj Kitchen</h1>
+        <!-- <img src="img/logo.png" alt="Logo"> -->
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="fa fa-bars"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-0 pe-4">
+            <a href="/landing" class="nav-item nav-link active">Home</a>
+            <a href="/items" class="nav-item nav-link">Items</a>
+            <a *ngIf="isLoggedIn" href="/my-orders" class="nav-item nav-link">My Orders</a>
+            <a *ngIf="!isLoggedIn" href="/login" class="nav-item nav-link">Login</a>
+            <a *ngIf="isLoggedIn" href="/login" (click)="logout()" class="nav-item nav-link">Logout</a>
+        </div>
+        <a *ngIf="isLoggedIn" href="/book-table" class="btn btn-primary py-2 px-4">Book A Table</a>
+        <a *ngIf="!isLoggedIn" href="/register" class="btn btn-primary py-2 px-4">Register Now</a>
+    </div>
+</nav>

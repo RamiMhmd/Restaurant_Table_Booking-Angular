@@ -1,0 +1,21 @@
+.card {
+    position: relative; /* Position relative for absolute positioning of border */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  .card.selected::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid #FEA116; /* Border color for selected card */
+    pointer-events: none; /* Avoid blocking clicks on underlying elements */
+    box-sizing: border-box;
+  }
+  
+ .cursor-pointer{
+    cursor: pointer;
+ }
+

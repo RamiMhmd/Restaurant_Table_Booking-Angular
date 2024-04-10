@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegisterService } from '../services/register.service';
 import { Router } from '@angular/router';
@@ -8,7 +8,7 @@ import { commonStyles } from '../app.constants'
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css',...commonStyles ]
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit{
   registerForm: FormGroup;
   registerError: string = '';
   constructor(private formBuilder: FormBuilder,  private registerService: RegisterService, private router: Router ) {
@@ -17,6 +17,12 @@ export class RegisterComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
+  }
+  
+  ngOnInit(): void {
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+      this.router.navigate(['/landing']);
+    }
   }
 
   onSubmit() {

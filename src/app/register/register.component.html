@@ -10,7 +10,7 @@
                 <h1 class="text-white mb-4">Register Now</h1>
                 <form *ngIf="registerForm" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                     <div class="row g-3">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="email" placeholder="Name"
                                     formControlName="name">
@@ -21,7 +21,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-floating">
                                 <input type="email" class="form-control" id="email" placeholder="Email"
                                     formControlName="email">
@@ -37,7 +37,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-floating">
                                 <input type="password" class="form-control" id="password" placeholder="Password"
                                     formControlName="password">

@@ -14,4 +14,29 @@
     }
   }
   
- 
+  .text-primary {
+    color: #FEA116!important;
+  }
+  .btn-primary {
+    color: #000;
+    background-color: #FEA116;
+    border-color: #FEA116;
+}
+.btn-primary:hover {
+  color: #000;
+  background-color: #fab348;
+  border-color: #FEA116;
+}
+.btn-primary:focus {
+  color: #000;
+  background-color: #fab348;
+  border-color: #FEA116;
+}
+.btn-primary:active {
+  color: #000;
+  background-color: #fab348;
+  border-color: #FEA116;
+}
+nav-link nav-link{
+  color: red !important;
+}

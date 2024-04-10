@@ -11,7 +11,7 @@
                 <h1 class="text-white mb-4">LOGIN</h1>
                 <form *ngIf="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                     <div class="row g-3">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-floating">
                                 <input type="email" class="form-control" id="email" placeholder="Email"
                                     formControlName="email">
@@ -27,7 +27,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-floating">
                                 <input type="password" class="form-control" id="password" placeholder="Password"
                                     formControlName="password">

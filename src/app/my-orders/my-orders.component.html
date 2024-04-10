@@ -14,7 +14,7 @@
     </div>
     <div *ngIf="items.length == 0" class="text-center text-primary pt-5" style="min-height: 15rem;"> There is no orders placed</div>
     <div class="row" id="section-to-print">
-      <div class="col-md-4 mb-3" *ngFor="let order of items">
+      <div class="col-md-12 mb-3" *ngFor="let order of items">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">{{ order.name }}</h5>

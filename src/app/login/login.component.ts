@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('userName', loginResult.name || ''); // Storing user's name in local storage, or empty string if undefined
         localStorage.setItem('email', loginResult.email || '');
         this.router.navigate(['/landing']);
+        window.location.reload();
       } else {
         // Handle failed login
         this.loginError = loginResult?.error || 'Login failed';

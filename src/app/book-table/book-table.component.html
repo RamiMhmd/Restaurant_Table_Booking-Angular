@@ -1,0 +1,86 @@
+
+
+<!-- Reservation Start -->
+<div class="container-xxl py-5 px-0 wow fadeInUp mt-10" data-wow-delay="0.1s">
+  <div class="row g-0 mt-5">
+    <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()" style="width: 100%; display: flex;">
+      <div class="tableList" style="max-width: 50%;">
+        <div class="row row-cols-2" style="margin-right: 10px;">
+          <div class="col mb-4" *ngFor="let table of tables">
+             <div class="card cursor-pointer" [ngClass]="{ 'selected': selectedTable === table }" (click)="onTableSelect(table)">
+              <div class="row g-0 text-center">
+                <div class="col-md-4">
+                  <label>
+                    <img [src]="table.imgUrl" class="card-img-top cursor-pointer" alt="..." style="width: 130%;">
+                  </label>
+                </div>
+                <div class="col-md-6 pt-3">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ table.name }}</h5>
+                    <p class="card-text">No. of People: {{ table.no_of_people }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-dark d-flex align-items-center" style="max-width: 50%; margin-bottom: 25px;">
+        <div class="p-5 wow fadeInUp" data-wow-delay="0.2s" style="margin-top: -3rem">
+          <h5 class="section-title ff-secondary text-start text-primary fw-normal">Reservation</h5>
+          <h1 class="text-white mb-4">Book A Table Online</h1>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="name" placeholder="Your Name" formControlName="name" readonly>
+                <label for="name">Your Name</label>
+                <div *ngIf="submitted && f['name'].errors || (f['name'].dirty || f['name'].touched)" class="text-danger">
+                  <div *ngIf="f['name'].errors?.['required']">Name is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="email" class="form-control" id="email" placeholder="Your Email" formControlName="email" readonly>
+                    <label for="email">Your Email</label>
+                    <div *ngIf="submitted && f['email'].errors || (f['email'].dirty || f['email'].touched)" class="text-danger">
+                        <div *ngIf="f['email'].errors?.['required']">Email is required</div>
+                        <div *ngIf="f['email'].errors?.['email']">Invalid email format</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating date" id="date3" data-target-input="nearest">
+                    <input type="datetime-local" class="form-control datetimepicker-input" id="datetime"
+                        placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker"
+                        formControlName="datetime" [min]="minDateTime"/>
+                    <label for="datetime">Date & Time</label>
+                    <div *ngIf="submitted && f['datetime'].errors || (f['datetime'].dirty || f['datetime'].touched)" class="text-danger">
+                        <div *ngIf="f['datetime'].errors?.['required']">Date & Time is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <select class="form-select" id="items" formControlName="items" >
+                        <option  *ngFor="let item of items" [ngValue]="item">
+                            
+                            {{ item.name }} - ${{ item.price }}</option>
+                    </select>
+                    <label for="items">Select Items</label>
+                    <div *ngIf="submitted && f['items'].errors || (f['items'].dirty || f['items'].touched)" class="text-danger">
+                        <div *ngIf="f['items'].errors?.['required']">At least one item is required</div>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="col-12 mt-3">
+            <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Reservation End -->

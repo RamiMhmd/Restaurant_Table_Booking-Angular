@@ -1,0 +1,54 @@
+<!-- Reservation Start -->
+<div class="container-xxl py-5 px-0 wow fadeInUp mt-10" data-wow-delay="0.1s">
+    <div class="row g-0 mt-5">
+        <div style="max-width:  50%;">
+            <img src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg"
+                style="width: 100%; height: 35rem;">
+        </div>
+        <div class="bg-dark d-flex align-items-center" style="max-width:  50%;">
+            <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+                <h5 class="section-title ff-secondary text-start text-primary fw-normal">welcome</h5>
+                <h1 class="text-white mb-4">LOGIN</h1>
+                <form *ngIf="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="email" placeholder="Email"
+                                    formControlName="email">
+                                <label for="email">Email</label>
+                                <div *ngIf="loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.touched"
+                                    class="text-danger">
+                                    Email is required
+                                </div>
+                                <div *ngIf="loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.touched"
+                                    class="text-danger">
+                                    Please enter a valid email address
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="password" class="form-control" id="password" placeholder="Password"
+                                    formControlName="password">
+                                <label for="password">Password</label>
+                                <div *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched"
+                                    class="text-danger">
+                                    Password is required
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary w-100 py-3">LOGIN</button>
+                            <div *ngIf="loginError" class="text-danger mt-2">{{ loginError }}</div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Reservation Start -->

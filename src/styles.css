@@ -1,0 +1,42 @@
+@media print {
+    body * {
+      visibility: hidden;
+    }
+    #section-to-print, #section-to-print * {
+      visibility: visible;
+      color: white;
+    }
+    #section-to-print {
+      position: absolute;
+      left: 0;
+      top: 0;
+      
+    }
+  }
+  
+  .text-primary {
+    color: #FEA116!important;
+  }
+  .btn-primary {
+    color: #000;
+    background-color: #FEA116;
+    border-color: #FEA116;
+}
+.btn-primary:hover {
+  color: #000;
+  background-color: #fab348;
+  border-color: #FEA116;
+}
+.btn-primary:focus {
+  color: #000;
+  background-color: #fab348;
+  border-color: #FEA116;
+}
+.btn-primary:active {
+  color: #000;
+  background-color: #fab348;
+  border-color: #FEA116;
+}
+nav-link nav-link{
+  color: red !important;
+}

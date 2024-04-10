@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
@@ -7,16 +7,21 @@ import { commonStyles } from '../app.constants'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css',...commonStyles]
+  styleUrls: ['./login.component.css', ...commonStyles]
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loginError: string = '';
-  constructor(private formBuilder: FormBuilder,  private loginService: LoginService, private router: Router ) {
+  constructor(private formBuilder: FormBuilder, private loginService: LoginService, private router: Router) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
+  }
+  ngOnInit(): void {
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+      this.router.navigate(['/landing']);
+    }
   }
 
   onSubmit() {
@@ -31,7 +36,7 @@ export class LoginComponent {
         this.loginError = '';
         localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem('userName', loginResult.name || ''); // Storing user's name in local storage, or empty string if undefined
-        localStorage.setItem('email', loginResult.email || ''); 
+        localStorage.setItem('email', loginResult.email || '');
         this.router.navigate(['/landing']);
       } else {
         // Handle failed login

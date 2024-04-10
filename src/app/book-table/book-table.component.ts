@@ -33,6 +33,9 @@ export class BookTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (!localStorage.getItem('isLoggedIn')) {
+      this.router.navigate(['/login']);
+    }
     // Set minimum date-time value
     const currentDateTime = new Date().toISOString().slice(0, 16); // Format: YYYY-MM-DDTHH:mm
     this.minDateTime = currentDateTime;
